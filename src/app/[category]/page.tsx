@@ -1,6 +1,7 @@
 import { fetchCategoryItems, fetchTopItems } from "@/utils/stories";
 import PageList from "./PageList";
-import ExampleClientComponent from "./example-client-component";
+
+export const dynamicParams = false 
 
 export default async function Page({params}: any) {
     // const topPages = await fetchCategoryItems("");
@@ -11,3 +12,9 @@ export default async function Page({params}: any) {
       </div>
     )
 }
+
+export async function generateStaticParams() {
+  let params = ["top", "new", "best", "ask", "show", "job"]
+  return params.map((item) => ({category: item}))
+}
+ 
